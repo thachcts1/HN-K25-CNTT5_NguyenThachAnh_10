@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <stdbool.h>
-
-#define MAX 100
 
 int main() {
-    int arr[MAX];
+    int arr[100];
     int number = 0;
     int choice;
+
     do {
         printf("\n|------------------MENU------------------|\n");
         printf("1. Nhap so luong phan tu va gia tri tung phan tu cho mang\n");
@@ -29,9 +27,9 @@ int main() {
                 do {
                     printf("Nhap so luong phan tu: ");
                     scanf("%d", &number);
-                    if (number <= 0 || number > MAX)
+                    if (number <= 0 || number > 100)
                         printf("So luong khong hop le!\n");
-                } while (number <= 0 || number > MAX);
+                } while (number <= 0 || number > 100);
 
                 for (int i = 0; i < number; i++) {
                     printf("Nhap arr[%d]: ", i);
@@ -82,7 +80,7 @@ int main() {
             }
 
             case 5: {
-                if (number >= MAX) {
+                if (number >= 100) {
                     printf("Mang day, khong the them!\n");
                     break;
                 }
@@ -137,34 +135,6 @@ int main() {
                 break;
             }
 
-            case 8: {
-                if (number == 0) {
-                    printf("Mang rong!\n");
-                    break;
-                }
-                int x;
-                printf("Nhap phan tu can tim: ");
-                scanf("%d", &x);
-             
-                int left = 0, right = number - 1, found = -1;
-                while (left <= right) {
-                    int mid = (left + right) / 2;
-                    if (arr[mid] == x) {
-                        found = mid;
-                        break;
-                    } else if (arr[mid] < x)
-                        left = mid + 1;
-                    else
-                        right = mid - 1;
-                }
-                if (found != -1)
-                    printf("Phan tu %d ton tai o vi tri %d\n", x, found);
-                else
-                    printf("Khong tim thay phan tu %d trong mang!\n", x);
-                break;
-            }
-
-           
 
             case 11:
                 printf("Good bye!!!\n");
